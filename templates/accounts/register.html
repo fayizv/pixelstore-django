@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- ============================ COMPONENT REGISTER   ================================= -->
+<div class="bg-dark" style="max-width:600px; border-radius:10px; margin-top:40px; margin-left: 28%; background-color: rgb(92, 97, 95);">
+<div class="card mx-auto"
+  style="max-width:600px; max-height: 600px; border-radius:10px; margin-top:40px;  color: azure;">
+  <article class="card-body"><br><br>
+    {% include 'includs/alerts.html' %}
+
+    <header class="mb-4">
+      <h1 class="card-title text-center" style="color: azure;">SIGN UP</h1>
+    </header>
+    <br><br>
+    <form action="{% url 'register' %}" method="POST">
+      {% csrf_token %}
+
+
+      <div class="form-row">
+        <div class="col form-group col-md-6">
+          <label>First name</label>
+          {{ form.first_name}}
+        </div> <!-- form-group end.// -->
+        <div class="col form-group col-md-6">
+          <label>Last name</label>
+          {{ form.last_name}}
+        </div> <!-- form-group end.// -->
+      </div> <!-- form-row end.// -->
+      <div class="form-row">
+        <div class="col form-group col-md-6">
+          <label>Email</label><br>
+          {{ form.email}}
+        </div> <!-- form-group end.// -->
+        <div class="col form-group col-md-6">
+          <label>phone</label><br>
+          {{ form.phone_number}}
+        </div> <!-- form-group end.// -->
+      </div> <!-- form-row.// -->
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>Create password</label>
+          {{ form.password}}
+        </div> <!-- form-group end.// -->
+        <div class="form-group col-md-6">
+          <label>Repeat password</label>
+          {{ form.confirm_password}}
+        </div> <!-- form-group end.// -->
+      </div> <br><br>
+
+      <!-- form-group end.// -->
+      <div class="form-group text-center" style="padding-top: 10px;">
+      </div> <!-- form-group// -->
+      {{ form.email.errors }}
+      {{ form.non_field_errors }}
+      
+      <button type="submit" class="btn btn-" style="margin-left: 45%; background-color: rgb(70, 172, 131);"> Register </button>
+
+    </form><br><br><br>
+  </article><!-- card-body.// -->
+</div> <!-- card .// --><br>
+</div>
+<br><br>
+<p class="text-center mt-4">Have Account? <a href="{% url 'login'%}">Log In</a></p>
+
+<!-- ============================ COMPONENT REGISTER  END.// ================================= -->
+
+{% endblock %}
