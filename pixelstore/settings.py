@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'category', 
     'accounts',
     'store',
+    'carts',
+    # 'vendor',
 ]
 
 MIDDLEWARE = [
@@ -69,6 +71,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'category.context_processors.menu_links',
+                'carts.context_processors.counter',
             ],
         },
     },
@@ -76,7 +79,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'pixelstore.wsgi.application'
 AUTH_USER_MODEL = 'accounts.Account'
-
+# AUTH_USER_MODEL = 'vendor.Vendor'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -127,8 +130,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,"static"),
+    'pixelstore/static',
 ]
 
 
@@ -147,3 +151,11 @@ MESSAGE_TAGS = {
 # media files configuration
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR /'media'
+
+
+# SMTP configuration 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'bcap55248@gmail.com'
+EMAIL_HOST_PASSWORD = 'ofds zpcn ybgj wcqa'
+EMAIL_USE_TLS = True

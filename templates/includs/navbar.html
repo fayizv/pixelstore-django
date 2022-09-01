@@ -7,7 +7,7 @@
             <ul class="header-links pull-left">
                 <li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
                 <li><a href="#"><i class="fa fa-envelope-o"></i> pixelstore@email.com</a></li>
-                <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+                <li><a href="#"><i class="fa fa-map-marker"></i> kerela </a></li>
             </ul>
             <ul class="header-links pull-right">
                 {% if user.is_authenticated %}
@@ -17,6 +17,7 @@
                 <li><a href="{% url 'login' %}"><i class="fa fa-user-o"></i>Login</a></li>
                 <li><a href="{% url 'register' %}"><i class="fa fa-user-o"></i>Register</a></li>
                 {%endif%}
+                <li><a href="{% url 'dashboard' %}"></i> Dashboard</a></li>
             </ul>
         </div>
     </div>
@@ -41,14 +42,14 @@
                 <!-- SEARCH BAR -->
                 <div class="col-md-6">
                     <div class="header-search">
-                        <form>
-                            <select class="input-select">
+                        <form action="{% url 'search' %}" method='GET'>
+                            <!-- <select class="input-select">
                                 {% for category in links %}
                                 <option value="{{ category.get_url }}">{{ category.category_name }}</option>
                                 {% endfor %}
-                            </select>
-                            <input class="input" placeholder="Search here">
-                            <button class="search-btn" style="background-color: rgb(70, 172, 131);">Search</button>
+                            </select> -->
+                            <input class="input" placeholder="Search here" name="keyword" style="border-radius:20px;">
+                            <button class="search-btn" style="background-color: rgb(70, 172, 131);border-radius:20px;">Search</button>
                         </form>
                     </div>
                 </div>
@@ -69,12 +70,12 @@
 
                         <!-- Cart -->
                         <div class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                            <a href="{% url 'cart' %}">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span>Your Cart</span>
-                                <div class="qty">3</div>
+                                <div class="qty">{{ cart_count }}</div>
                             </a>
-                            <div class="cart-dropdown">
+                            <!-- <div class="cart-dropdown">
                                 <div class="cart-list">
                                     <div class="product-widget">
                                         <div class="product-img">
@@ -107,7 +108,7 @@
                                     <a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- /Cart -->
 
                         <!-- Menu Toogle -->

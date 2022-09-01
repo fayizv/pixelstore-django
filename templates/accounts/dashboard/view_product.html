@@ -1,0 +1,52 @@
+{% extends 'accounts/dashboard/base_dashboard.html' %}
+
+
+{% block content %}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Product Management </h4>
+        <!-- <p class="card-description"> Add class <code>.table-striped</code> -->
+        </p>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th> Image </th>
+                <th> Product </th>
+                <th> Price </th>
+                <th> Stock </th>
+                <th> Category </th>
+                <th> Edit </th>
+                <th> Delete </th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+              <tr>
+                
+                <td class="py-1">
+                  <img src="{{ product.image.url }}" alt="image" />
+                </td>
+                <td> {{ product.product_name }}</td>
+                <td>
+                  <!-- <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div> -->
+                  {{ product.price }}
+                </td>
+                <td> {{ product.stock }} </td>
+                <td> {{ product.category }} </td>
+                <td> <i class="fa fa-pencil-square" aria-hidden="true"></i> </td>
+                <td> <i class="fa fa-trash" aria-hidden="true"></i></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}
