@@ -17,7 +17,7 @@
                 <li><a href="{% url 'login' %}"><i class="fa fa-user-o"></i>Login</a></li>
                 <li><a href="{% url 'register' %}"><i class="fa fa-user-o"></i>Register</a></li>
                 {%endif%}
-                <li><a href="{% url 'dashboard' %}"></i> Dashboard</a></li>
+                <li><a href="{% url 'user_dashboard' %}"></i> Dashboard</a></li>
             </ul>
         </div>
     </div>
@@ -60,10 +60,10 @@
                     <div class="header-ctn">
                         <!-- Wishlist -->
                         <div>
-                            <a href="#">
+                            <a href="{% url 'wishlist' %}">
                                 <i class="fa fa-heart-o"></i>
                                 <span>Your Wishlist</span>
-                                <div class="qty">2</div>
+                                <!-- <div class="qty">2</div> -->
                             </a>
                         </div>
                         <!-- /Wishlist -->

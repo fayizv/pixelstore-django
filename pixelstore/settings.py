@@ -40,11 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'category', 
     'accounts',
     'store',
     'carts',
-    # 'vendor',
+    'orders',
+    'razorpay',
+    'wishlist',
+    'category',
+    
 ]
 
 MIDDLEWARE = [
@@ -159,3 +162,9 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'bcap55248@gmail.com'
 EMAIL_HOST_PASSWORD = 'ofds zpcn ybgj wcqa'
 EMAIL_USE_TLS = True
+
+
+# razorpay 
+
+RAZOR_KEY_ID = 'rzp_test_SPLw8eEIbVIaLk'
+RAZOR_KEY_SECRET = 'mDJrns1jUOrh2lxybv2HSCzm'

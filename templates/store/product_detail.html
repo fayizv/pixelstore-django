@@ -9,45 +9,27 @@
         <div class="row">
             <!-- Product main img -->
             <div class="col-md-5 col-md-push-2">
+                
                 <div id="product-main-img">
                     <div class="product-preview">
                         <img src="{{ single_product.image.url }}" alt="">
                     </div>
 
-                    <div class="product-preview">
-                        <img src="./img/product03.png" alt="">
-                    </div>
-
-                    <div class="product-preview">
-                        <img src="./img/product06.png" alt="">
-                    </div>
-
-                    <div class="product-preview">
-                        <img src="./img/product08.png" alt="">
-                    </div>
                 </div>
+                
             </div>
             <!-- /Product main img -->
 
             <!-- Product thumb imgs -->
+
             <div class="col-md-2  col-md-pull-5">
+                {% for i in product_gallery %}
                 <div id="product-imgs">
                     <div class="product-preview">
-                        <img src=" '/img/bg.png'" alt="">
-                    </div>
-
-                    <div class="product-preview">
-                        <img src="./img/product03.png" alt="">
-                    </div>
-
-                    <div class="product-preview">
-                        <img src="./img/product06.png" alt="">
-                    </div>
-
-                    <div class="product-preview">
-                        <img src="./img/bg.png" alt="">
+                        <a href="{{i.image.url}}" target="mainImage"><img src="{{i.image.url}}" alt="Product Image"></a>
                     </div>
                 </div>
+                {% endfor %}
             </div>
             <!-- /Product thumb imgs -->
 
@@ -103,14 +85,14 @@
     
                         
                         <div class="add-to-cart">
-                            <div class="qty-label">
+                            <!-- <div class="qty-label">
                                 Qty
                                 <div class="input-number">
                                     <input type="number">
                                     <span class="qty-up">+</span>
                                     <span class="qty-down">-</span>
                                 </div>
-                            </div>
+                            </div> -->
                             {% if single_product.stock < 1 %}
                                 <h5 class="text-danger"> Out of stock</h5>
                                 <!-- {% if in_cart %}
@@ -129,7 +111,7 @@
     
                         
                         <ul class="product-btns">
-                            <li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
+                            <li><a href="{% url 'wishlist' %}"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
                             
                         </ul>
     
@@ -137,14 +119,6 @@
                             <li>Category:</li>
                             <li><a href="#">{{ single_product.category}}</a></li>
                 
-                        </ul>
-    
-                        <ul class="product-links">
-                            <li>Share:</li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-envelope"></i></a></li>
                         </ul>
     
                     </div>

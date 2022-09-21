@@ -35,13 +35,13 @@
                                   <figure class="itemside align-items-center">
                                       <div class="aside"><img src="{{ cart_item.product.image.url }}" class="img-sm"></div>
                                       <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true">{{ cart_item.product.product_name }}</a>
-                                          <p class="text-muted small">
+                                        <p class="text-muted small">
                                             {% if cart_item.variations.all %}
                                                 {% for item in cart_item.variations.all %}
-                                                    {{ item.variation_category }} : {{ item.variation_value }}
+                                                    {{ item.variation_category | capfirst }} : {{ item.variation_value | capfirst }} <br>
                                                 {% endfor %}
-                                            {% endif %} 
-                                            
+                                            {% endif %}
+                                        </p>
                                             
                                       </figcaption>
                                   </figure>

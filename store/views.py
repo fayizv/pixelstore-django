@@ -5,6 +5,7 @@ from category.models import category
 from .forms import ProductForm
 from carts.views import _cart_id
 from django.db.models import Q
+from orders.models import ProductGallery
 
 
 
@@ -38,45 +39,48 @@ def product_detail(request,category_slug,product_slug):
     except Exception as e:
         raise e
 
+    # Get the product gallery
+    product_gallery = ProductGallery.objects.filter(product_id=single_product.id)
+
     context = {
         'single_product' : single_product,
         'in_cart'        : in_cart,
     }
     return render(request,'store/product_detail.html',context)    
 
-def view_product(request,slug=None):
-    categories = None
-    products = None
+# def view_product(request,slug=None):
+#     categories = None
+#     products = None
 
-    if slug != None:
-        categories = get_object_or_404(category, slug=slug)
-        products = Product.objects.filter(category=categories, is_available=True)
-    else:
-        products = Product.objects.all().filter(is_available=True).order_by("id")
-        # product_count = products.count()
-    context = {
-        "products": products,
-        #'product_count': product_count,
-    }
-    return render(request,'accounts/dashboard/view_product.html',context)
+#     if slug != None:
+#         categories = get_object_or_404(category, slug=slug)
+#         products = Product.objects.filter(category=categories, is_available=True)
+#     else:
+#         products = Product.objects.all().filter(is_available=True).order_by("id")
+#         # product_count = products.count()
+#     context = {
+#         "products": products,
+#         #'product_count': product_count,
+#     }
+#     return render(request,'accounts/admin_dashboard/view_product.html',context)
 
-def add_product(request):
-    if request.method == 'POST':
-        product_form = ProductForm(request.POST,request.FILES)
+# def add_product(request):
+#     if request.method == 'POST':
+#         product_form = ProductForm(request.POST,request.FILES)
 
-        if product_form.is_valid():
-            product_form.save()
-            return redirect('add_product.html')
+#         if product_form.is_valid():
+#             product_form.save()
+#             return redirect('add_product.html')
 
-    else:
-        product_form = ProductForm()
+#     else:
+#         product_form = ProductForm()
 
-    context = {
-        'product_form' : product_form
+#     context = {
+#         'product_form' : product_form
 
-    }    
+#     }    
 
-    return render(request,'accounts/dashboard/add_product.html',context)
+#     return render(request,'accounts/admin_dashboard/add_product.html',context)
 
 def search(request):
     if 'keyword' in request.GET:

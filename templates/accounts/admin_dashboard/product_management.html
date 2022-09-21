@@ -1,4 +1,4 @@
-{% extends 'accounts/dashboard/base_dashboard.html' %}
+{% extends 'accounts/admin_dashboard/base_dashboard.html' %}
 
 
 {% block content %}
@@ -37,8 +37,8 @@
                 </td>
                 <td> {{ product.stock }} </td>
                 <td> {{ product.category }} </td>
-                <td> <i class="fa fa-pencil-square" aria-hidden="true"></i> </td>
-                <td> <i class="fa fa-trash" aria-hidden="true"></i></td>
+                <td> <a class="fa fa-pencil-square" href="{% url 'edit_product' product.id %}" aria-hidden="true"></a> </td>
+                <td> <a class="fa fa-trash"  href="{% url 'delete_product' product.id %}" aria-hidden="true"></a></td>
               </tr>
               {% endfor %}
             </tbody>

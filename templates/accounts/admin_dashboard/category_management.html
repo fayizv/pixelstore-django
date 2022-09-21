@@ -1,0 +1,62 @@
+
+
+{% extends "accounts/admin_dashboard/base_dashboard.html" %}
+
+{% block content %}
+
+
+    
+    
+    
+    
+    <!-- ========================= SECTION CONTENT ========================= -->
+    <section class="section-conten padding-y bg">
+    
+    <div class="container">
+        <h2 class="text-center mb-5">Manage Category</h2>
+        <div class="row">
+            <main class="col-md-9 "> 
+            <div class="row d-flex flex-row-reverse">
+          <a href="{% url 'add_category' %}" class="btn btn-gray-light mb-2  ">Add New</a>
+        </div>
+            <div class="row">
+                <table class="table table-gray-light">
+                    <thead>
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Category Name</th>
+                        <th scope="col">Category Slug</th>
+                        <th scope="col">Update</th>
+                        <th scope="col">Delete</th>
+                        
+                        
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for category in categories %}
+                        <tr>
+                          <th scope="row">{{ category.id }}</th>
+                          <td>{{ category.category_name }}</td>
+                          <td>{{ category.slug }}</td>
+                          <td><a href="{% url 'update_category' category.id %}" class= "btn-sm btn-light">Update</a></td>
+                          <td><a href="{% url 'delete_category' category.id %}" class= "btn-sm btn-light">Delete</a></td>
+                          <td>
+                           
+                          </td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                  </table>
+                
+
+              </div>
+        </main>
+    </div> <!-- row.// -->
+    </div>
+    
+    
+    </section>
+    <!-- ========================= SECTION CONTENT END// ========================= -->
+
+{% endblock content %}

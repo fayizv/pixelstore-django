@@ -130,7 +130,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title mb-4"> Billing Address </h4><br>
-                    <form action="" method="POST">
+                    <form action="{% url 'place_order' %}" method="POST">
                         {% csrf_token %}
                         <div>
                             <div class="form-row row">
