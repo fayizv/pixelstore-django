@@ -88,6 +88,7 @@ def search(request):
         if keyword:
             products = Product.objects.order_by('-created_date').filter(Q(detailes__icontains=keyword) | Q(product_name__icontains=keyword))
             product_count = products.count()
+            print('hello')
     context = {
         'products' : products,
         'product_count' : product_count,
