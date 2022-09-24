@@ -12,8 +12,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-
-
+import environ
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,12 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-av&v!irw0i2)vk9^%x+a5&j9q5miatu)gf#b85uev25z6p1h(8'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -47,6 +49,9 @@ INSTALLED_APPS = [
     'razorpay',
     'wishlist',
     'category',
+    'storages',
+    
+    
     
 ]
 
@@ -90,10 +95,10 @@ AUTH_USER_MODEL = 'accounts.Account'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'pixelstore',
-        'USER': 'postgres',
-        'PASSWORD': '****',
-        'HOST': 'localhost'
+        'NAME': env('NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('PASSWORD'),
+        'HOST': 'localhost',
     }
 }
 
@@ -157,14 +162,22 @@ MEDIA_ROOT = BASE_DIR /'media'
 
 
 # SMTP configuration 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'bcap55248@gmail.com'
-EMAIL_HOST_PASSWORD = 'ofds zpcn ybgj wcqa'
-EMAIL_USE_TLS = True
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_PORT = env('EMAIL_PORT', cast=int)
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = env('EMAIL_USE_TLS', cast=bool)
 
 
 # razorpay 
 
-RAZOR_KEY_ID = 'rzp_test_SPLw8eEIbVIaLk'
-RAZOR_KEY_SECRET = 'mDJrns1jUOrh2lxybv2HSCzm'
+RAZOR_KEY_ID = env('RAZOR_KEY_ID')
+RAZOR_KEY_SECRET = env('RAZOR_KEY_SECRET')
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+AWS_QUERYSTRING_AUTH = env('AWS_QUERYSTRING_AUTH')

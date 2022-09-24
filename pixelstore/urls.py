@@ -20,12 +20,13 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
+    path('securelogin/', admin.site.urls),
     path('',include('store.urls')),
     path('accounts/',include('accounts.urls')),
     path('cart/',include('carts.urls')),
     path('wishlist/',include('wishlist.urls')),
-    # path('vendor/',include('vendor.urls')),
+    
 
     # Orders
     path('orders/',include('orders.urls'))
