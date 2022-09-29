@@ -43,41 +43,20 @@
                   <span>Gold Member</span>
                 </div>
               </div>
-              <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
-              <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
-              
-                <div class="dropdown-divider"></div>
-                <a href="{% url 'admin_change_password' %}" class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-dark rounded-circle">
-                      <i class="mdi mdi-onepassword  text-info"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <p class="preview-subject ellipsis mb-1 text-small">Change Password</p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                
-              </div>
             </div>
           </li>
           <li class="nav-item nav-category">
-            <span class="nav-link">Navigation</span>
+            <a href="{% url 'admin_change_password' %}"> Change Password</a>
           </li>
           <li class="nav-item menu-items">
             <a class="nav-link" href="{% url 'admin_dashboard' %}">
-              <span class="menu-icon">
-                <i class="mdi mdi-apps"></i>
-              </span>
+            
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <span class="menu-icon">
-                <i class="fa fa-laptop" aria-hidden="true"></i>
-              </span>
+              
               <span class="menu-title">Product Management</span>
               <i class="menu-arrow"></i>
             </a>
@@ -85,8 +64,8 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{% url 'product_management' %}">Products</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{% url 'add_product' %}">Add Product</a></li>
-                <li class="nav-item"> <a class="nav-link" href="">Edit Product</a></li>
-                <li class="nav-item"> <a class="nav-link" href="">Add Category</a></li>
+                
+               
 
               </ul>
             </div>
@@ -94,41 +73,31 @@
         
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <span class="menu-icon">
-                <i class="mdi mdi-account-multiple" aria-hidden="true"></i>
-              </span>
+             
               <span class="menu-title" href>User Management</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{% url 'user_management'%}">Users</a></li>
-                <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/typography.html">Typography</a></li>
               </ul>
             </div>
           </li>
           <li class="nav-item menu-items">
             <a class="nav-link" href="{% url 'order_management' %}">
-              <span class="menu-icon">
-                <i class="fa fa-first-order" aria-hidden="true"></i>
-              </span>
+              
               <span class="menu-title">Order Management</span>
             </a>
           </li>
           <li class="nav-item menu-items">
             <a class="nav-link" href="{% url 'admin_orders' %}">
-              <span class="menu-icon">
-                <i class="mdi mdi-table-large"></i>
-              </span>
+              
               <span class="menu-title">Total Sales</span>
             </a>
           </li>
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <span class="menu-icon">
-                <i class="mdi mdi-account-multiple" aria-hidden="true"></i>
-              </span>
+              
               <span class="menu-title" href>Category Management</span>
               <i class="menu-arrow"></i>
             </a>

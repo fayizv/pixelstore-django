@@ -36,7 +36,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Total Orders</h5>
                         <p class="card-text text-gray-light h3">{{order_count}}</p>
-                        <a href="" class="btn btn-gray-light">View Orders</a>
+                        <a href="{% url 'order_management' %}" class="btn btn-gray-light">View Orders</a>
                       </div>
                     </div>
                   </div>
@@ -45,7 +45,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Product Category</h5>
                         <p class="card-text text-gray-light h3">{{category_count}}</p>
-                        <a href="" class="btn btn-gray-light">View Categories</a>
+                        <a href="{% url 'category_management' %}" class="btn btn-gray-light">View Categories</a>
                       </div>
                     </div>
                   </div>

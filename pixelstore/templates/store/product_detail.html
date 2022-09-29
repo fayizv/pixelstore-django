@@ -9,14 +9,14 @@
         <div class="row">
             <!-- Product main img -->
             <div class="col-md-5 col-md-push-2">
-                
+
                 <div id="product-main-img">
                     <div class="product-preview">
                         <img src="{{ single_product.image.url }}" alt="">
                     </div>
 
                 </div>
-                
+
             </div>
             <!-- /Product main img -->
 
@@ -54,36 +54,38 @@
                             <span class="product-available">{{ single_product.stock}}</span>
                         </div>
                         <p>{{ single_product.detailes }}</p>
-    
+
                         <div class="product-options">
-                            
+
                             <label>
                                 <h6>Choose Color</h6>
                                 <select name="color" class="form-control" required>
                                     <option value="" disabled selected> Select </option>
                                     {% for i in single_product.variation_set.colors %}
-                                    <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst}}</option>
+                                    <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst}}
+                                    </option>
                                     {% endfor %}
                                 </select>
                             </label>
                         </div>
 
                         <div class="product-options">
-                            
+
                             <label>
                                 <h6>Choose Size </h6>
                                 <select name="color" class="form-control" required>
                                     <option value="" disabled selected> Select </option>
                                     {% for i in single_product.variation_set.size %}
-                                    <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}</option>
+                                    <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}
+                                    </option>
                                     {% endfor %}
                                 </select>
                             </label>
                         </div>
-    
-                        
-    
-                        
+
+
+
+
                         <div class="add-to-cart">
                             <!-- <div class="qty-label">
                                 Qty
@@ -93,34 +95,35 @@
                                     <span class="qty-down">-</span>
                                 </div>
                             </div> -->
-                            {% if single_product.stock < 1 %}
-                                <h5 class="text-danger"> Out of stock</h5>
+                            {% if single_product.stock < 1 %} <h5 class="text-danger"> Out of stock</h5>
                                 <!-- {% if in_cart %}
                                 <a class="btn btn-success" href="#"  class="add-to-cart-btn" style="background-color: rgb(70, 172, 131);"><i class="fa fa-check"></i> Added to cart</a>
                                 <a class="btn btn-success" href="{% url 'cart' %}"  class="add-to-cart-btn" style="background-color: rgb(70, 172, 131);"><i class="fa fa-eye"></i> View cart</a>
                                 {% else %} -->
                                 <!-- {% endif %} -->
-                            {% else %}  
-                                <button type="submit"  class="add-to-cart-btn" style="background-color: rgb(70, 172, 131);"><i class="fa fa-shopping-cart"></i> Add to cart</button>
+                                {% else %}
+                                <button type="submit" class="add-to-cart-btn"
+                                    style="background-color: rgb(70, 172, 131);"><i class="fa fa-shopping-cart"></i> Add
+                                    to cart</button>
 
-                                
-                            {% endif %}
+
+                                {% endif %}
                         </div>
-                        
-    
-    
-                        
+
+
+
+
                         <ul class="product-btns">
                             <li><a href="{% url 'wishlist' %}"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
-                            
+
                         </ul>
-    
+
                         <ul class="product-links">
                             <li>Category:</li>
                             <li><a href="#">{{ single_product.category}}</a></li>
-                
+
                         </ul>
-    
+
                     </div>
                 </div>
             </form>
@@ -130,11 +133,14 @@
             <div class="col-md-12">
                 <div id="product-tab">
                     <!-- product tab nav -->
-                    
+
                     <!-- /product tab nav -->
 
                     <!-- product tab content -->
-                    
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-{% endblock%}
+                    {% endblock%}
