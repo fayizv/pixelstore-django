@@ -13,50 +13,38 @@
           <div class="form-group">
             <label for="exampleInputName1">Product Name </label> 
             {{ form.product_name }}
-            <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="product_name" >
             
           </div>
           <div class="form-group">
             <label for="exampleInputEmail3">Slug</label>
             {{ form.slug }}
-            <input type="text" class="form-control" id="exampleInputPrice3" placeholder="Slug" name="price">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail3">Price</label>
             {{ form.price }}
-            <input type="text" class="form-control" id="exampleInputPrice3" placeholder="Product Price" name="price">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword4">Category</label>
             {{ form.category }}
-            <input type="text" class="form-control" id="exampleInputCategory4" placeholder="Category" name="category">
           </div>
           
           <div class="form-group">
             <label>Image</label>
             {{ form.image }}
-            <input type="file" name="img[]" class="file-upload-default">
-            <div class="input-group col-xs-12">
-              <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" name="image">
-              <span class="input-group-append">
-                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-              </span>
+            <div class="input-group col-xs-12">              
             </div>
           </div>
           <div class="form-group">
             <label for="exampleInputCity1">Stock</label>
             {{ form.stock }}
-            <input type="text" class="form-control" id="exampleInputCity1" placeholder="Stock" name="stock">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail3">Is Available</label>
             {{ form.is_available }}
-            <input type="text" class="form-control" id="exampleInputPrice3" placeholder="Is Available" name="price">
           </div>
           <div class="form-group">
             <label for="exampleTextarea1">Product Details</label>
             {{ form.details }}
-            <textarea class="form-control" id="exampleTextarea1" rows="4" name="detailes"></textarea>
           </div>
           <button type="submit" class="btn btn-primary mr-2">Submit</button>
           <button class="btn btn-dark">Cancel</button>

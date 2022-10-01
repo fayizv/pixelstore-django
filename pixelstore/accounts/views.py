@@ -243,7 +243,7 @@ def add_product(request):
     if form.is_valid():
         form.save()
 
-        return redirect('product_management')
+        return redirect('add_product')
     
     return HttpResponse('Form is invalid')
   else:
@@ -377,12 +377,11 @@ def add_category(request):
         try:
             category_name = request.POST['category_name']
             category_slug = request.POST['category_slug']
-            category_description = request.POST['category_description']
             
             categories = category(
                 category_name = category_name,
                 slug = category_slug,
-                description = category_description
+             
             )
             
             categories.save()
