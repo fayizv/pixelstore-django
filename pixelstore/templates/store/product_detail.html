@@ -51,7 +51,10 @@
                         </div> -->
                         <div>
                             <h3 class="product-price"> ₹ {{ single_product.price }} </h3>
-                            <span class="product-available">{{ single_product.stock}}</span>
+                            <!-- <span class="product-available">{{ single_product.stock}}</span> -->
+                            {% if single_product.stock < 10 %} <h5 class="text-danger"> Only Few Left</h5>
+
+                            {% endif %}
                         </div>
                         <p>{{ single_product.detailes }}</p>
 
@@ -113,10 +116,10 @@
 
 
 
-                        <ul class="product-btns">
+                        <!-- <ul class="product-btns">
                             <li><a href="{% url 'wishlist' %}"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
 
-                        </ul>
+                        </ul> -->
 
                         <ul class="product-links">
                             <li>Category:</li>
