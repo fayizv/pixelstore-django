@@ -30,14 +30,15 @@
 		<!-- SECTION -->
 
 		<!-- SECTION -->
-		<div class="section">
+		<div class="section" style= background-color:#cbdadd;>
+			<h3 class="aside-title text-center">Top selling</h3>
 			<!-- container -->
 			<div class="container">
 				<!-- row -->
 				<div class="row">
 
 					<!-- Products tab & slick -->
-					<div class="col-md-12">
+					<div id="store" class="col-md-9">
 						<div class="row">
 							<div class="products-tabs ">
 								<!-- tab -->
@@ -92,6 +93,79 @@
 					<!-- Products tab & slick -->
 				</div>
 				<!-- /row -->
+
+				<!-- store products -->
+				<div class="col-md-12">
+					<!-- store top filter -->
+					<!-- <div class="store-filter clearfix">
+						<div class="store-sort">
+							<label>
+								Sort By:
+								<select class="input-select">
+									<option value="0">Popular</option>
+									<option value="1">Position</option>
+								</select>
+							</label>
+
+							<label>
+								Show:
+								<select class="input-select">
+									<option value="0">20</option>
+									<option value="1">50</option>
+								</select>
+							</label>
+						</div>
+						<ul class="store-grid">
+							<li class="active"><i class="fa fa-th"></i></li>
+							<li><a href="#"><i class="fa fa-th-list"></i></a></li>
+						</ul>
+					</div> -->
+					<!-- /store top filter -->
+					<div class="row">
+						<!-- product -->
+						{% for product in products %}
+						<div class="col-md-3 col-xs-6">
+							<div class="product">
+								<a href="{{ product.get_url }}">
+								<div class="product-img">
+										<img src="{{ product.image.url }}" alt="">
+								</div></a>
+								<div class="product-body">
+									
+									<h3 class="product-name">{{ product.product_name }}</h3>
+									<h4 class="product-price"> ₹ {{ product.price }}</h4>
+									<!-- <p class="product-stock">{{product.stock}}</p> -->
+									<div class="product-rating">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+									</div>
+									<!-- <div class="product-btns">
+										
+										<ul class="product-btns">
+											<li><a href="{% url 'wishlist' %}"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
+											
+										</ul>
+										
+									</div> -->
+								</div>
+								<div class="add-to-cart">
+									
+									<!-- <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> View details</button> -->
+									<a class="btn btn-danger" href="{{ product.get_url }}">View Details<i class="fa fa-shopping-cart"></i></a>
+								</div>
+								
+							</div>
+						</div>
+						{% endfor %}
+						<!-- /product -->
+
+					</div>
+			    </div>
+				<!-- /store products -->
+
 			</div>
 			<!-- /container -->
 		</div>
