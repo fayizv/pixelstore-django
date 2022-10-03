@@ -6,7 +6,7 @@
              
 
 		<!-- NAVIGATION -->
-		<nav id="navigation" style= background-color:#cbcdce;>
+		<nav id="navigation" style= background-color:#cbcdce; >
 			<!-- container -->
 			<div class="container" >
 				<!-- responsive-nav -->
@@ -37,13 +37,13 @@
 				<div class="row">
 
 					<!-- Products tab & slick -->
-					<div id="store" class="col-md-12 " style= background-color:#abb1ae;><br>
-						<h3 class="aside-title text-center">Top selling</h3><br>
+					<div id="store" class="col-md-12 " style= "background-color:#abb1ae; border-radius:10px;"><br>
+						<h3 class="aside-title text-center">TOP SELLING</h3><br>
 						<div class="row">
 							<div class="products-tabs ">
 								<!-- tab -->
-								<div id="tab1" class="tab-pane active">
-									<div class="products-slick" data-nav="#slick-nav-1">
+								<div id="tab1" class="tab-pane active" >
+									<div class="products-slick" data-nav="#slick-nav-1" >
 										<!-- product -->
 										{% for product in products %}
 										<div class="product">
@@ -79,6 +79,7 @@
 											</div>
 											
 										</div>
+									
 										{% endfor %}
 										
 										<!-- /product -->
@@ -86,6 +87,7 @@
 									</div>
 									<div id="slick-nav-1" class="products-slick-nav"></div>
 								</div>
+								<br><br>
 								<!-- /tab -->
 							</div>
 						</div>
@@ -95,7 +97,7 @@
 				<!-- /row -->
 
 				<!-- store products -->
-				<div class="col-md-12">
+				<div class="col-md-12" >
 					<!-- store top filter -->
 					<!-- <div class="store-filter clearfix">
 						<div class="store-sort">
